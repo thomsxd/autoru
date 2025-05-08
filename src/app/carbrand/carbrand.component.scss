@@ -1,0 +1,265 @@
+.carbrand {
+  display: flex;
+  margin: 35px 0;
+  gap: 25px;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h1 {
+        font-weight: 700;
+        font-size: 26.36px;
+        line-height: 32px;
+        letter-spacing: 0%;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 15.54px;
+        line-height: 20px;
+        letter-spacing: 0.41px;
+        color: #1c212899;
+      }
+    }
+
+    &-option {
+      display: flex;
+      justify-content: space-between;
+
+      &-one {
+        display: flex;
+        border-radius: 8px;
+        height: 36px;
+        overflow: hidden;
+
+        p {
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 34px;
+          letter-spacing: 0;
+          text-align: center;
+          color: #1c212899;
+          padding: 0 15px;
+          cursor: pointer;
+          background: #fff;
+          border: 1px solid #0000001f;
+          margin-right: -1px;
+
+          &:first-child {
+            border-radius: 8px 0 0 8px;
+          }
+
+          &:last-child {
+            border-radius: 0 8px 8px 0;
+            margin-right: 0;
+          }
+
+          &:hover {
+            background: #0c78ed;
+            color: #fff;
+            border-color: #0c78ed;
+          }
+        }
+
+        .carbrand__left-active {
+          color: #000000;
+          background: #e1eefc;
+          border: 1px solid #0c78ed;
+          z-index: 1;
+
+          &:first-child {
+            border-radius: 8px 0 0 8px;
+          }
+
+          &:last-child {
+            border-radius: 0 8px 8px 0;
+          }
+        }
+      }
+    }
+
+    &-brands {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+
+      a,
+      p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 400;
+        font-size: 14.41px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        cursor: pointer;
+
+        &:hover {
+          color: #e60000;
+        }
+
+        span {
+          color: #00000080;
+        }
+      }
+    }
+
+    &-predlojenia {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0 0 0;
+
+      p {
+        font-weight: 400;
+        font-size: 13.95px;
+        line-height: 20px;
+        letter-spacing: 0%;
+        color: #1c212899;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        svg {
+          cursor: pointer;
+        }
+      }
+
+      button {
+        border: 0;
+        padding: 0 40px;
+        background: #0c78ed;
+        border-radius: 8px;
+        cursor: pointer;
+
+        color: #fff;
+        font-weight: 400;
+        font-size: 14.06px;
+        line-height: 42px;
+        letter-spacing: 0%;
+        text-align: center;
+
+        &:hover {
+          background: #2284ef;
+        }
+      }
+    }
+  }
+
+  .carbrand__calc {
+    width: 257px;
+    background: #f3f4f6;
+    border-radius: 24px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: max-content;
+
+    img {
+      width: 92px;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 18.13px;
+      line-height: 24px;
+      letter-spacing: 0.48px;
+    }
+
+    &-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      input {
+        background: #fff;
+        border: 0;
+        height: 44px;
+        font-weight: 400;
+        padding: 0 20px;
+        font-size: 14.3px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        border-radius: 4px;
+
+        &:first-child {
+          border-radius: 12px 12px 4px 4px;
+        }
+
+        &:last-child {
+          border-radius: 4px 4px 12px 12px;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    &-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      button {
+        height: 44px;
+        border: 0;
+        background: #000000;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 12px;
+
+        &:hover {
+          background: #595959;
+        }
+
+        font-weight: 500;
+        font-size: 14.3px;
+        line-height: 20px;
+        letter-spacing: 0%;
+        text-align: center;
+
+        &:nth-of-type(2) {
+          background: #4954681a;
+          color: #000000;
+
+          &:hover {
+            background: #cacdd0;
+          }
+        }
+      }
+
+      span {
+        font-weight: 400;
+        color: #00000080;
+        font-size: 11.31px;
+        line-height: 12px;
+        letter-spacing: 0%;
+        text-align: center;
+      }
+    }
+  }
+}
