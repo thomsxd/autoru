@@ -8,12 +8,12 @@
           <div class="cart__one" (mouseenter)="startSlider(i)" (mouseleave)="stopSlider(i)">
             <img [src]="product.images[product.activeImageIndex]" alt="image">
             <div class="image__points">
-              <span *ngFor="let image of product.images; let imgIndex = index" 
+              <span *ngFor="let image of product.images.slice(0, 5); let imgIndex = index" 
                     [class.active]="imgIndex === product.activeImageIndex"
                     (mouseenter)="setActiveImage(i, imgIndex)"></span>
             </div>
             <div class="image__points-slider">
-              <span *ngFor="let image of product.images; let imgIndex = index" 
+              <span *ngFor="let image of product.images.slice(0, 5); let imgIndex = index" 
                     [class.active]="imgIndex === product.activeImageIndex"
                     (mouseenter)="setActiveImage(i, imgIndex)"></span>
             </div>
