@@ -51,6 +51,7 @@
           cursor: pointer;
           background: #fff;
           border: 1px solid #0000001f;
+          user-select: none;
           margin-right: -1px;
 
           &:first-child {
@@ -74,6 +75,13 @@
           background: #e1eefc;
           border: 1px solid #0c78ed;
           z-index: 1;
+          cursor: default;
+
+          &:hover {
+            color: #000000;
+            background: #e1eefc;
+            border: 1px solid #0c78ed;
+          }
 
           &:first-child {
             border-radius: 8px 0 0 8px;

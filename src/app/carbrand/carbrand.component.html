@@ -9,16 +9,24 @@
     
             <div class="carbrand__left-option">
                 <div class="carbrand__left-option-one">
-                    <p class="carbrand__left-active">Все</p>
-                    <p>Новые</p>
-                    <p>С пробегом</p>
+                  <p 
+                    *ngFor="let item of mainFilters" 
+                    (click)="setActiveMainFilter(item)"
+                    [class.carbrand__left-active]="item === activeMainFilter">
+                    {{ item }}
+                  </p>
                 </div>
-    
+              
                 <div class="carbrand__left-option-one">
-                    <p class="carbrand__left-active">Марки</p>
-                    <p>Помощник</p>
+                  <p 
+                    *ngFor="let item of subFilters" 
+                    (click)="setActiveSubFilter(item)"
+                    [class.carbrand__left-active]="item === activeSubFilter">
+                    {{ item }}
+                  </p>
                 </div>
-            </div>
+              </div>
+              
     
             <div class="carbrand__left-brands">
                 <img src="/assets/carbrands/dealer_logo-0.png" alt="brand">
