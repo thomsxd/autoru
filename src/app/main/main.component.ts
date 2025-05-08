@@ -39,7 +39,7 @@ export class MainComponent {
     },
     {
       id: 3,
-      name: 'Mercedes Aushev test Magasov Test test',
+      name: 'Mercedes S-class',
       price: '3 800 000 ₽',
       year: 2019,
       mileage: '60 000 км',
@@ -49,6 +49,32 @@ export class MainComponent {
         'https://avatars.mds.yandex.net/get-autoru-vos/2023939/c8756cf049e542c8921483dcbac28ff8/832x624',
         'https://avatars.mds.yandex.net/get-autoru-vos/4402921/305cd4ca1a9b76b248c7693a4732fc20/832x624',
         'https://avatars.mds.yandex.net/get-autoru-vos/2158055/cdc6fe1078634b10bbf2a259dc1eab79/832x624'
+      ],
+      activeImageIndex: 0,
+      intervalId: null as any
+    },
+    {
+      id: 4,
+      name: 'Test Ivan',
+      price: '10 ₽',
+      year: 2025,
+      mileage: '99 99 99 км',
+      images: [
+        'https://i.pinimg.com/736x/b6/5a/8f/b65a8f84db59b26b9df812ac49569bea.jpg',
+        'https://i.pinimg.com/736x/75/c7/5f/75c75f1840f8175af77a8ff7ebd015ec.jpg',
+      ],
+      activeImageIndex: 0,
+      intervalId: null as any
+    },
+    {
+      id: 5,
+      name: 'Maga Magaev',
+      price: '99 ₽',
+      year: 2000,
+      mileage: '0 км',
+      images: [
+        'https://i.pinimg.com/736x/75/c7/5f/75c75f1840f8175af77a8ff7ebd015ec.jpg',
+        'https://i.pinimg.com/736x/b6/5a/8f/b65a8f84db59b26b9df812ac49569bea.jpg',
       ],
       activeImageIndex: 0,
       intervalId: null as any
