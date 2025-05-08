@@ -3,15 +3,19 @@
       <h1>
         <img src="https://yastatic.net/s3/vertis-front-deploy/_autoru-frontend/feed_c04da74e5a216d9a42d478bf295acb2d.svg" alt="img"> Рекомендации
       </h1>
-  
       <div class="products">
-        <div class="cart" *ngFor="let product of products">
-          <div class="cart__one">
-            <img *ngFor="let image of product.images" [src]="image" alt="image">
-            
+        <div class="cart" *ngFor="let product of products; let i = index">
+          <div class="cart__one" (mouseenter)="startSlider(i)" (mouseleave)="stopSlider(i)">
+            <img [src]="product.images[product.activeImageIndex]" alt="image">
             <div class="image__points">
-                <span *ngFor="let image of product.images"></span>
-                <span class="active"></span>
+              <span *ngFor="let image of product.images; let imgIndex = index" 
+                    [class.active]="imgIndex === product.activeImageIndex"
+                    (mouseenter)="setActiveImage(i, imgIndex)"></span>
+            </div>
+            <div class="image__points-slider">
+              <span *ngFor="let image of product.images; let imgIndex = index" 
+                    [class.active]="imgIndex === product.activeImageIndex"
+                    (mouseenter)="setActiveImage(i, imgIndex)"></span>
             </div>
             <div class="favorite">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="IconSvg IconSvg_name_SvgFavoriteMOutline IconSvg_size_24 ButtonFavorite__icon PersonalizedFeedOfferItem__favoriteIcon-S602N">
