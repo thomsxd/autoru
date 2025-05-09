@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    avatar: {
+      type: String,
+      default: "/uploads/defaults/avatar.png",
+    },
   },
   {
     timestamps: true,
