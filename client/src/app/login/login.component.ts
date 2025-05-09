@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import axios from 'axios';
 import { FormsModule } from '@angular/forms';
@@ -13,10 +13,18 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   email: string = '';
-  code: string = '';
+  code: string[] = Array(6).fill('');
   isCodeStep: boolean = false;
   errorMessage: string = '';
   isLoading: boolean = false;
+  isCodeVerified: boolean = false;
+
+  @ViewChild('codeInput1') codeInput1!: ElementRef;
+  @ViewChild('codeInput2') codeInput2!: ElementRef;
+  @ViewChild('codeInput3') codeInput3!: ElementRef;
+  @ViewChild('codeInput4') codeInput4!: ElementRef;
+  @ViewChild('codeInput5') codeInput5!: ElementRef;
+  @ViewChild('codeInput6') codeInput6!: ElementRef;
 
   constructor(private titleService: Title, private metaService: Meta, private router: Router) {}
 
@@ -44,6 +52,7 @@ export class LoginComponent implements OnInit {
     try {
       await axios.post('http://localhost:8080/auth', { email: this.email });
       this.isCodeStep = true;
+      setTimeout(() => this.codeInput1.nativeElement.focus(), 0);
     } catch (error: any) {
       this.errorMessage = error.response?.data?.message || 'Ошибка при запросе кода';
     } finally {
@@ -51,8 +60,34 @@ export class LoginComponent implements OnInit {
     }
   }
 
+onCodeInput(index: number, event: any): void {
+    const value = event.target.value;
+    if (value) {
+      this.code[index - 1] = value;
+      
+      
+      if (index < 6) {
+        const nextInput = this[`codeInput${index + 1}` as keyof LoginComponent] as ElementRef;
+        nextInput.nativeElement.focus();
+      }
+      
+      
+      if (this.code.every(c => c)) {  
+        this.verifyCode();
+      }
+    }
+  }
+
+  onCodeBackspace(index: number, event: any): void {
+    if (event.target.value === '' && index > 1) {
+      const prevInput = this[`codeInput${index - 1}` as keyof LoginComponent] as ElementRef;
+      prevInput.nativeElement.focus();
+    }
+  }
+
   async verifyCode(): Promise<void> {
-    if (this.code.length !== 6) {
+    const fullCode = this.code.join('');
+    if (fullCode.length !== 6) {
       this.errorMessage = 'Код должен состоять из 6 цифр';
       return;
     }
@@ -63,15 +98,19 @@ export class LoginComponent implements OnInit {
     try {
       const response = await axios.post('http://localhost:8080/auth/verify-code', {
         email: this.email,
-        code: this.code,
+        code: fullCode,
       });
       const { token } = response.data;
-     this.router.navigate(['/']);
-      localStorage.setItem('token', token); 
+      this.isCodeVerified = true;
       
+      setTimeout(() => {
+        this.router.navigate(['/']);
+        localStorage.setItem('token', token);
+      }, 1000);
       
     } catch (error: any) {
       this.errorMessage = error.response?.data?.message || 'Неверный код';
+      this.isCodeVerified = false;
     } finally {
       this.isLoading = false;
     }
@@ -79,7 +118,8 @@ export class LoginComponent implements OnInit {
 
   goBack(): void {
     this.isCodeStep = false;
-    this.code = '';
+    this.code = Array(6).fill('');
     this.errorMessage = '';
+    this.isCodeVerified = false;
   }
 }

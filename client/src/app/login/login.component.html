@@ -20,21 +20,60 @@
           </button>
         </ng-container>
 
-        <ng-template #codeInput>
-          <input
-            type="text"
-            placeholder="Введите 6-значный код"
-            [(ngModel)]="code"
-            maxlength="6"
-            (keyup.enter)="verifyCode()"
-            [disabled]="isLoading"
-          />
+         <ng-template #codeInput>
+        <div class="code__verify" [class.success]="isCodeVerified">
+            <input
+              #codeInput1
+              type="text"
+              maxlength="1"
+              (input)="onCodeInput(1, $event)"
+              (keydown.backspace)="onCodeBackspace(1, $event)"
+              [disabled]="isLoading"
+            />
+            <input
+              #codeInput2
+              type="text"
+              maxlength="1"
+              (input)="onCodeInput(2, $event)"
+              (keydown.backspace)="onCodeBackspace(2, $event)"
+              [disabled]="isLoading"
+            />
+            <input
+              #codeInput3
+              type="text"
+              maxlength="1"
+              (input)="onCodeInput(3, $event)"
+              (keydown.backspace)="onCodeBackspace(3, $event)"
+              [disabled]="isLoading"
+            />
+            <input
+              #codeInput4
+              type="text"
+              maxlength="1"
+              (input)="onCodeInput(4, $event)"
+              (keydown.backspace)="onCodeBackspace(4, $event)"
+              [disabled]="isLoading"
+            />
+            <input
+              #codeInput5
+              type="text"
+              maxlength="1"
+              (input)="onCodeInput(5, $event)"
+              (keydown.backspace)="onCodeBackspace(5, $event)"
+              [disabled]="isLoading"
+            />
+            <input
+              #codeInput6
+              type="text"
+              maxlength="1"
+              (input)="onCodeInput(6, $event)"
+              (keydown.backspace)="onCodeBackspace(6, $event)"
+              [disabled]="isLoading"
+            />
+          </div>
           <button (click)="verifyCode()" [disabled]="isLoading">
             {{ isLoading ? 'Загрузка...' : 'Подтвердить' }}
           </button>
-          <!-- <button (click)="goBack()" [disabled]="isLoading" class="go-back">
-            Назад
-          </button> -->
         </ng-template>
       </div>
 
