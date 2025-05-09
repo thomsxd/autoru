@@ -1,0 +1,12 @@
+<div class="profile-container">
+  <div *ngIf="user" class="profile-card">
+    <h2>Профиль пользователя</h2>
+    <div class="profile-info">
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Имя:</strong> {{ user.name || 'Не указано' }}</p>
+      <p><strong>Верифицирован:</strong> {{ user.isVerified ? 'Да' : 'Нет' }}</p>
+    </div>
+    <button class="logout-btn" (click)="logout()">Выйти</button>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>

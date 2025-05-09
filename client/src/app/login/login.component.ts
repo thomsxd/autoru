@@ -1,15 +1,17 @@
 import { NgIf } from '@angular/common';
-import { Component, NgModule, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import axios from 'axios';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ FormsModule, NgIf],
+  standalone: true,
+  imports: [FormsModule, NgIf],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   email: string = '';
@@ -26,7 +28,12 @@ export class LoginComponent implements OnInit {
   @ViewChild('codeInput5') codeInput5!: ElementRef;
   @ViewChild('codeInput6') codeInput6!: ElementRef;
 
-  constructor(private titleService: Title, private metaService: Meta, private router: Router) {}
+  constructor(
+    private titleService: Title,
+    private metaService: Meta,
+    private router: Router,
+    private authService: AuthService 
+  ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('Вход в систему');
@@ -60,19 +67,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
-onCodeInput(index: number, event: any): void {
+  onCodeInput(index: number, event: any): void {
     const value = event.target.value;
     if (value) {
       this.code[index - 1] = value;
-      
-      
+
       if (index < 6) {
         const nextInput = this[`codeInput${index + 1}` as keyof LoginComponent] as ElementRef;
         nextInput.nativeElement.focus();
       }
-      
-      
-      if (this.code.every(c => c)) {  
+
+      if (this.code.every(c => c)) {
         this.verifyCode();
       }
     }
@@ -101,17 +106,23 @@ onCodeInput(index: number, event: any): void {
         code: fullCode,
       });
       const { token } = response.data;
+      localStorage.setItem('token', token);
       this.isCodeVerified = true;
+
       
-      setTimeout(() => {
-        this.router.navigate(['/']);
-        localStorage.setItem('token', token);
-      }, 1000);
-      
+      try {
+        const userData = await this.authService.getMe();
+        console.log('Данные пользователя:', userData.user);
+        setTimeout(() => {
+          this.router.navigate(['/profile']);
+        }, 1000);
+      } catch (error: any) {
+        this.errorMessage = error.message || 'Ошибка при получении данных пользователя';
+        console.error('Ошибка при получении данных:', error);
+      }
     } catch (error: any) {
       this.errorMessage = error.response?.data?.message || 'Неверный код';
       this.isCodeVerified = false;
-    } finally {
       this.isLoading = false;
     }
   }
