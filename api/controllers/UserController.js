@@ -128,3 +128,25 @@ export const updateProfile = async (req, res) => {
     res.status(500).json({ message: "Ошибка сервера", error: error.message });
   }
 };
+
+export const getMe = async (req, res) => {
+  try {
+    const { userId } = req.user;
+
+    const user = await User.findById(userId).select("email name isVerified");
+    if (!user) {
+      return res.status(404).json({ message: "Пользователь не найден" });
+    }
+
+    res.status(200).json({
+      message: "Данные пользователя получены",
+      user: {
+        email: user.email,
+        name: user.name || "",
+        isVerified: user.isVerified,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Ошибка сервера", error: error.message });
+  }
+};

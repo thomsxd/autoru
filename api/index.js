@@ -5,9 +5,11 @@ import multer from "multer";
 import cors from "cors";
 
 import {
+  getMe,
   requestAuthCode,
   verifyAuthCode,
 } from "./controllers/UserController.js";
+import { checkAuth } from "./utils/checkAuth.js";
 
 dotenv.config();
 
@@ -72,6 +74,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
 
 app.post("/auth", requestAuthCode);
 app.post("/auth/verify-code", verifyAuthCode);
+app.get("/me", checkAuth, getMe);
 
 app.use("/uploads", express.static("uploads"));
 
