@@ -11,8 +11,9 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  userEmail: string | null = null;
+  user: { email: string; avatar: string; name: null | null } | null = null;
   isAuthenticated: boolean = false;
+  isPopup: boolean = false;
 
   constructor(private authService: AuthService) {}
 
@@ -20,26 +21,34 @@ export class HeaderComponent implements OnInit {
     this.checkAuthStatus();
   }
 
+  
   private checkAuthStatus(): void {
     this.isAuthenticated = this.authService.isAuthenticated();
     if (this.isAuthenticated) {
       this.authService.getMe().then(
         (response) => {
-          this.userEmail = response.user.email;
+          this.user = response.user; 
+          console.log(response);
+          
+          
         },
         (error) => {
           console.error('Ошибка при получении данных пользователя:', error);
           this.isAuthenticated = false;
-          this.userEmail = null;
+          this.user = null;
           this.authService.logout(); 
         }
       );
     }
   }
 
+  setIsPopup() {
+    this.isPopup = !this.isPopup;
+  }
+
   logout(): void {
     this.authService.logout();
     this.isAuthenticated = false;
-    this.userEmail = null;
+    this.user = null;
   }
 }

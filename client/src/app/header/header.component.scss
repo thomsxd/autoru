@@ -87,6 +87,21 @@ header {
     gap: 8px;
     position: relative;
 
+    .avatar {
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      margin: 0 20px;
+      object-fit: cover;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
     a {
       height: 100%;
       background: blue;
@@ -113,9 +128,9 @@ header {
 
     .popup__me {
       position: absolute;
-      left: 0;
+      left: 20px;
       box-sizing: border-box;
-      min-width: 280px;
+      min-width: 270px;
       padding: 16px;
       background: #fff;
       z-index: 2;
@@ -125,10 +140,11 @@ header {
       box-shadow: 0 10px 30px 0 #0000001a;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 17px;
 
       a,
       p {
+        margin-left: 5px;
         height: auto;
         display: flex;
         align-items: center;
@@ -137,9 +153,48 @@ header {
         background: none;
         font-size: 15px;
         transition: 0.2s ease;
+        cursor: pointer;
 
         &:hover {
           color: #e60000;
+        }
+      }
+
+      &-avatar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        margin-bottom: 2px;
+
+        &:hover {
+          .span__text {
+            p {
+              color: red;
+            }
+          }
+        }
+
+        img {
+          width: 40px;
+          object-fit: cover;
+          height: 40px;
+          border-radius: 50%;
+        }
+
+        .span__text {
+          display: flex;
+          flex-direction: column;
+          font-size: 14px;
+
+          p {
+            margin: 0;
+          }
+
+          span {
+            color: #1c212899;
+            font-size: 13px;
+          }
         }
       }
     }
